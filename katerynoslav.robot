@@ -79,7 +79,6 @@ ${locator.contracts.status}                                     css=.contract_st
 Підготувати дані для оголошення тендера користувачем
   [Arguments]      ${username}      ${tender_data}      ${role_name}
   [Documentation]  Відключити створення тендеру в тестовому режимі
-  ${tender_data}=  adapt_test_mode   ${tender_data}
   [Return]         ${tender_data}
 
 Login
@@ -201,7 +200,6 @@ Login
   sleep  2
   Wait Until Page Contains Element      xpath=(//*[@id='tPosition_status' and not(contains(@style,'display: none'))])
 
-
 Перейти до сторінки запитань
   Wait Until Page Contains Element   id=questions_ref
   Click Element     id=questions_ref
@@ -288,7 +286,7 @@ Login
   [Documentation]
   ...      ${ARGUMENTS[0]} ==  username
   ...      ${ARGUMENTS[2]} ==  fieldname
-  ${return_value}=  run keyword  Отримати інформацію про ${ARGUMENTS[2]}
+  ${return_value}=  Run Keyword  Отримати інформацію про ${ARGUMENTS[2]}
   [return]           ${return_value}
 
 Отримати текст із поля і показати на сторінці
@@ -321,7 +319,6 @@ Login
   ${return_value}=   Отримати текст із поля і показати на сторінці   tenderAttempts
   ${return_value}=   Convert To Integer   ${return_value}
   [return]           ${return_value}
-
 
 Отримати інформацію про eligibilityCriteria
   ${return_value}=   Отримати текст із поля і показати на сторінці   eligibilityCriteria
